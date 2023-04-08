@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+
+<script>
+    (() => {
+        fetch("http://127.0.0.1:9999/corsTest",
+            {
+                method: "POST",//请求方法 默认get
+                headers: {//配置请求头
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ a: 1, b: 2 }),//请求的 body 信息：可能是一个 Blob、BufferSource、FormData、URLSearchParams 或者 USVString 对象。注意 GET 或 HEAD 方法的请求不能包含 body 信息。
+                referrer: "about:client",// 一个 USVString 可以是 no-referrer、client 或一个 URL。默认是 client。
+                referrerPolicy: "no-referrer-when-downgrade",//指定了 HTTP 头部 referer 字段的值。可能为以下值之一：no-referrer、 no-referrer-when-downgrade、origin、origin-when-cross-origin、 unsafe-url。
+                mode: "cors",//请求的模式，如 cors、no-cors 或者 same-origin。
+                credentials: "omit",// 请求的 credentials，如 omit、same-origin 或者 include。为了在当前域名内自动发送 cookie，必须提供这个选项。
+                cache: "default",// 请求的 cache 模式：default、 no-store、 reload 、 no-cache、 force-cache 或者 only-if-cached。
+                redirect: "follow",//可用的 redirect 模式：follow (自动重定向), error (如果产生重定向将自动终止并且抛出一个错误），或者 manual (手动处理重定向)。在 Chrome 中默认使用 follow（Chrome 47 之前的默认值是 manual）
+                integrity: "",//包括请求的 subresource integrity 值（例如： sha256-BpfBw7ivV8q2jLiT13fxDYAe2tJllusRSZ273h2nFSE=）。
+                keepalive: false,//而这个参数是在说，即使页面已经不在了，这个请求依然需要完成，因此浏览器会延长它的生存期。
+                signal: undefined//配合AbortController完成请求中断操作
+            }).then((response) => response.json()).then(res => {
+                console.log(res)
+            });
+    })()
+
+</script>
+
+</html>
