@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+</body>
+<script>
+    // 前端定义好callback
+    function cbFn(obj) {
+        // 这里的obj就是后端返回的数据了。这样就完成了一次数据交换
+        console.log(obj)
+    }
+</script>
+<script src="http://127.0.0.1:8888/jsonp?a=1&b=2&cbName=cbFn"></script>
+
+</html>
